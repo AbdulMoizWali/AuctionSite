@@ -1,0 +1,4 @@
+- Post Add
+- Post Auction
+- Buying
+- Bidding
