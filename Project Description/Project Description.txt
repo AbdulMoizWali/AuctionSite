@@ -1,4 +1,12 @@
-- Post Add
+- Post Add ()
 - Post Auction
 - Buying
 - Bidding
+
+Buying Service
+
+- User search product that listed by seller
+- user select product that user want to buy
+- Contact with seller either with message or Phone 
+- Negotiate price
+- if all set (deal is done with seller)
