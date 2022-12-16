@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://main" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://main" xmlns:intf="http://main" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://main" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="main">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="args" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="mainResponse">
+    <complexType/>
+   </element>
+   <element name="getAuctions">
+    <complexType/>
+   </element>
+   <element name="getAuctionsResponse">
+    <complexType>
+     <sequence>
+      <element name="getAuctionsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="InsertAuction">
+    <complexType>
+     <sequence>
+      <element name="ProductID" type="xsd:string"/>
+      <element name="StartDate" type="xsd:string"/>
+      <element name="MinBidPrice" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="InsertAuctionResponse">
+    <complexType/>
+   </element>
+   <element name="InsertAuctionWithProduct">
+    <complexType>
+     <sequence>
+      <element name="Title" type="xsd:string"/>
+      <element name="Description" type="xsd:string"/>
+      <element name="Category" type="xsd:string"/>
+      <element name="Location" type="xsd:string"/>
+      <element name="Start" type="xsd:string"/>
+      <element name="MinBidPrice" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="InsertAuctionWithProductResponse">
+    <complexType/>
+   </element>
+   <element name="UpdateAuctionStatus">
+    <complexType>
+     <sequence>
+      <element name="AuctionID" type="xsd:string"/>
+      <element name="Status" type="xsd:string"/>
+      <element name="Approved" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="UpdateAuctionStatusResponse">
+    <complexType/>
+   </element>
+   <element name="addHoursToJavaUtilDate">
+    <complexType>
+     <sequence>
+      <element name="date" type="xsd:dateTime"/>
+      <element name="hours" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addHoursToJavaUtilDateResponse">
+    <complexType>
+     <sequence>
+      <element name="addHoursToJavaUtilDateReturn" type="xsd:dateTime"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getProductAuctionInformation">
+    <complexType>
+     <sequence>
+      <element name="ProductName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getProductAuctionInformationResponse">
+    <complexType>
+     <sequence>
+      <element name="getProductAuctionInformationReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="InsertAuctionResponse">
+
+      <wsdl:part element="impl:InsertAuctionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addHoursToJavaUtilDateResponse">
+
+      <wsdl:part element="impl:addHoursToJavaUtilDateResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="UpdateAuctionStatusRequest">
+
+      <wsdl:part element="impl:UpdateAuctionStatus" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="InsertAuctionWithProductResponse">
+
+      <wsdl:part element="impl:InsertAuctionWithProductResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="mainResponse">
+
+      <wsdl:part element="impl:mainResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="mainRequest">
+
+      <wsdl:part element="impl:main" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getProductAuctionInformationRequest">
+
+      <wsdl:part element="impl:getProductAuctionInformation" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getProductAuctionInformationResponse">
+
+      <wsdl:part element="impl:getProductAuctionInformationResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAuctionsRequest">
+
+      <wsdl:part element="impl:getAuctions" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="InsertAuctionRequest">
+
+      <wsdl:part element="impl:InsertAuction" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addHoursToJavaUtilDateRequest">
+
+      <wsdl:part element="impl:addHoursToJavaUtilDate" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="UpdateAuctionStatusResponse">
+
+      <wsdl:part element="impl:UpdateAuctionStatusResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAuctionsResponse">
+
+      <wsdl:part element="impl:getAuctionsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="InsertAuctionWithProductRequest">
+
+      <wsdl:part element="impl:InsertAuctionWithProduct" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Auction">
+
+      <wsdl:operation name="main">
+
+         <wsdl:input message="impl:mainRequest" name="mainRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:mainResponse" name="mainResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAuctions">
+
+         <wsdl:input message="impl:getAuctionsRequest" name="getAuctionsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAuctionsResponse" name="getAuctionsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="InsertAuction">
+
+         <wsdl:input message="impl:InsertAuctionRequest" name="InsertAuctionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:InsertAuctionResponse" name="InsertAuctionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="InsertAuctionWithProduct">
+
+         <wsdl:input message="impl:InsertAuctionWithProductRequest" name="InsertAuctionWithProductRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:InsertAuctionWithProductResponse" name="InsertAuctionWithProductResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="UpdateAuctionStatus">
+
+         <wsdl:input message="impl:UpdateAuctionStatusRequest" name="UpdateAuctionStatusRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:UpdateAuctionStatusResponse" name="UpdateAuctionStatusResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addHoursToJavaUtilDate">
+
+         <wsdl:input message="impl:addHoursToJavaUtilDateRequest" name="addHoursToJavaUtilDateRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addHoursToJavaUtilDateResponse" name="addHoursToJavaUtilDateResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProductAuctionInformation">
+
+         <wsdl:input message="impl:getProductAuctionInformationRequest" name="getProductAuctionInformationRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getProductAuctionInformationResponse" name="getProductAuctionInformationResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="AuctionSoapBinding" type="impl:Auction">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="main">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="mainRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="mainResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAuctions">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAuctionsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAuctionsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="InsertAuction">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="InsertAuctionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="InsertAuctionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="InsertAuctionWithProduct">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="InsertAuctionWithProductRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="InsertAuctionWithProductResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="UpdateAuctionStatus">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="UpdateAuctionStatusRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="UpdateAuctionStatusResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addHoursToJavaUtilDate">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addHoursToJavaUtilDateRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addHoursToJavaUtilDateResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProductAuctionInformation">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getProductAuctionInformationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getProductAuctionInformationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="AuctionService">
+
+      <wsdl:port binding="impl:AuctionSoapBinding" name="Auction">
+
+         <wsdlsoap:address location="http://localhost:8080/AuctionSite/services/Auction"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

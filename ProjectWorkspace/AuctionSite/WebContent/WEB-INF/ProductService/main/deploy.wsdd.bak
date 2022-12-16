@@ -1,0 +1,38 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ProductService WSDL service -->
+
+  <service name="Product" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://main"/>
+      <parameter name="wsdlServiceElement" value="ProductService"/>
+      <parameter name="schemaQualified" value="http://main"/>
+      <parameter name="wsdlServicePort" value="Product"/>
+      <parameter name="className" value="main.ProductSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Product"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getProducts" qname="operNS:getProducts" xmlns:operNS="http://main" returnQName="retNS:getProductsReturn" xmlns:retNS="http://main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="setLatestProductID" qname="operNS:setLatestProductID" xmlns:operNS="http://main" soapAction="" >
+      </operation>
+      <operation name="getProductID" qname="operNS:getProductID" xmlns:operNS="http://main" returnQName="retNS:getProductIDReturn" xmlns:retNS="http://main" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="insertProduct" qname="operNS:InsertProduct" xmlns:operNS="http://main" soapAction="" >
+        <parameter qname="pns:Title" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Description" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Category" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Location" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="insertProduct setLatestProductID getProducts getProductID"/>
+
+  </service>
+</deployment>
