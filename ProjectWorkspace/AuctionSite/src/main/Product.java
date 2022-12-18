@@ -22,7 +22,7 @@ public class Product {
 	
 
 	
-	public void InsertProduct(String Title, String Description, String Category, String Location) {
+	public void insertProduct(String Title, String Description, String Category, String Location) {
 		this.Title = Title;
 		this.Description = Description;
 		this.Category = Category;

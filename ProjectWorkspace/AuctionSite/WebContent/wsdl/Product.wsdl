@@ -14,12 +14,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="setLatestProductID">
-    <complexType/>
-   </element>
-   <element name="setLatestProductIDResponse">
-    <complexType/>
-   </element>
    <element name="getProductID">
     <complexType/>
    </element>
@@ -30,7 +24,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="InsertProduct">
+   <element name="insertProduct">
     <complexType>
      <sequence>
       <element name="Title" type="xsd:string"/>
@@ -40,7 +34,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="InsertProductResponse">
+   <element name="insertProductResponse">
+    <complexType/>
+   </element>
+   <element name="setLatestProductID">
+    <complexType/>
+   </element>
+   <element name="setLatestProductIDResponse">
     <complexType/>
    </element>
   </schema>
@@ -62,6 +62,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="insertProductResponse">
+
+      <wsdl:part element="impl:insertProductResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:message name="getProductsRequest">
 
       <wsdl:part element="impl:getProducts" name="parameters">
@@ -73,22 +81,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:message name="getProductIDRequest">
 
       <wsdl:part element="impl:getProductID" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="InsertProductResponse">
-
-      <wsdl:part element="impl:InsertProductResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="InsertProductRequest">
-
-      <wsdl:part element="impl:InsertProduct" name="parameters">
 
       </wsdl:part>
 
@@ -110,6 +102,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="insertProductRequest">
+
+      <wsdl:part element="impl:insertProduct" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:portType name="Product">
 
       <wsdl:operation name="getProducts">
@@ -119,18 +119,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:getProductsResponse" name="getProductsResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="setLatestProductID">
-
-         <wsdl:input message="impl:setLatestProductIDRequest" name="setLatestProductIDRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:setLatestProductIDResponse" name="setLatestProductIDResponse">
 
        </wsdl:output>
 
@@ -148,13 +136,25 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="InsertProduct">
+      <wsdl:operation name="insertProduct">
 
-         <wsdl:input message="impl:InsertProductRequest" name="InsertProductRequest">
+         <wsdl:input message="impl:insertProductRequest" name="insertProductRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:InsertProductResponse" name="InsertProductResponse">
+         <wsdl:output message="impl:insertProductResponse" name="insertProductResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setLatestProductID">
+
+         <wsdl:input message="impl:setLatestProductIDRequest" name="setLatestProductIDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setLatestProductIDResponse" name="setLatestProductIDResponse">
 
        </wsdl:output>
 
@@ -184,24 +184,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="setLatestProductID">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="setLatestProductIDRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="setLatestProductIDResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="getProductID">
 
          <wsdlsoap:operation soapAction=""/>
@@ -220,17 +202,35 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="InsertProduct">
+      <wsdl:operation name="insertProduct">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="InsertProductRequest">
+         <wsdl:input name="insertProductRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="InsertProductResponse">
+         <wsdl:output name="insertProductResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setLatestProductID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setLatestProductIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setLatestProductIDResponse">
 
             <wsdlsoap:body use="literal"/>
 

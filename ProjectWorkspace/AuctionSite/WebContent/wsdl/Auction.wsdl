@@ -4,14 +4,16 @@
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://main" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="main">
+   <element name="insertAuction">
     <complexType>
      <sequence>
-      <element maxOccurs="unbounded" name="args" type="xsd:string"/>
+      <element name="ProductID" type="xsd:string"/>
+      <element name="StartDate" type="xsd:string"/>
+      <element name="MinBidPrice" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="mainResponse">
+   <element name="insertAuctionResponse">
     <complexType/>
    </element>
    <element name="getAuctions">
@@ -21,60 +23,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     <complexType>
      <sequence>
       <element name="getAuctionsReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="InsertAuction">
-    <complexType>
-     <sequence>
-      <element name="ProductID" type="xsd:string"/>
-      <element name="StartDate" type="xsd:string"/>
-      <element name="MinBidPrice" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="InsertAuctionResponse">
-    <complexType/>
-   </element>
-   <element name="InsertAuctionWithProduct">
-    <complexType>
-     <sequence>
-      <element name="Title" type="xsd:string"/>
-      <element name="Description" type="xsd:string"/>
-      <element name="Category" type="xsd:string"/>
-      <element name="Location" type="xsd:string"/>
-      <element name="Start" type="xsd:string"/>
-      <element name="MinBidPrice" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="InsertAuctionWithProductResponse">
-    <complexType/>
-   </element>
-   <element name="UpdateAuctionStatus">
-    <complexType>
-     <sequence>
-      <element name="AuctionID" type="xsd:string"/>
-      <element name="Status" type="xsd:string"/>
-      <element name="Approved" type="xsd:boolean"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="UpdateAuctionStatusResponse">
-    <complexType/>
-   </element>
-   <element name="addHoursToJavaUtilDate">
-    <complexType>
-     <sequence>
-      <element name="date" type="xsd:dateTime"/>
-      <element name="hours" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="addHoursToJavaUtilDateResponse">
-    <complexType>
-     <sequence>
-      <element name="addHoursToJavaUtilDateReturn" type="xsd:dateTime"/>
      </sequence>
     </complexType>
    </element>
@@ -92,12 +40,78 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <element name="addHoursToJavaUtilDate">
+    <complexType>
+     <sequence>
+      <element name="date" type="xsd:dateTime"/>
+      <element name="hours" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addHoursToJavaUtilDateResponse">
+    <complexType>
+     <sequence>
+      <element name="addHoursToJavaUtilDateReturn" type="xsd:dateTime"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertAuctionWithProduct">
+    <complexType>
+     <sequence>
+      <element name="Title" type="xsd:string"/>
+      <element name="Description" type="xsd:string"/>
+      <element name="Category" type="xsd:string"/>
+      <element name="Location" type="xsd:string"/>
+      <element name="Start" type="xsd:string"/>
+      <element name="MinBidPrice" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertAuctionWithProductResponse">
+    <complexType/>
+   </element>
+   <element name="updateAuctionStatus">
+    <complexType>
+     <sequence>
+      <element name="AuctionID" type="xsd:string"/>
+      <element name="Status" type="xsd:string"/>
+      <element name="Approved" type="xsd:boolean"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateAuctionStatusResponse">
+    <complexType/>
+   </element>
   </schema>
  </wsdl:types>
 
-   <wsdl:message name="InsertAuctionResponse">
+   <wsdl:message name="updateAuctionStatusResponse">
 
-      <wsdl:part element="impl:InsertAuctionResponse" name="parameters">
+      <wsdl:part element="impl:updateAuctionStatusResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertAuctionResponse">
+
+      <wsdl:part element="impl:insertAuctionResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertAuctionWithProductResponse">
+
+      <wsdl:part element="impl:insertAuctionWithProductResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAuctionsRequest">
+
+      <wsdl:part element="impl:getAuctions" name="parameters">
 
       </wsdl:part>
 
@@ -111,33 +125,41 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="UpdateAuctionStatusRequest">
+   <wsdl:message name="insertAuctionWithProductRequest">
 
-      <wsdl:part element="impl:UpdateAuctionStatus" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="InsertAuctionWithProductResponse">
-
-      <wsdl:part element="impl:InsertAuctionWithProductResponse" name="parameters">
+      <wsdl:part element="impl:insertAuctionWithProduct" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="mainResponse">
+   <wsdl:message name="addHoursToJavaUtilDateRequest">
 
-      <wsdl:part element="impl:mainResponse" name="parameters">
+      <wsdl:part element="impl:addHoursToJavaUtilDate" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="mainRequest">
+   <wsdl:message name="updateAuctionStatusRequest">
 
-      <wsdl:part element="impl:main" name="parameters">
+      <wsdl:part element="impl:updateAuctionStatus" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertAuctionRequest">
+
+      <wsdl:part element="impl:insertAuction" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAuctionsResponse">
+
+      <wsdl:part element="impl:getAuctionsResponse" name="parameters">
 
       </wsdl:part>
 
@@ -159,63 +181,15 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getAuctionsRequest">
-
-      <wsdl:part element="impl:getAuctions" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="InsertAuctionRequest">
-
-      <wsdl:part element="impl:InsertAuction" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="addHoursToJavaUtilDateRequest">
-
-      <wsdl:part element="impl:addHoursToJavaUtilDate" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="UpdateAuctionStatusResponse">
-
-      <wsdl:part element="impl:UpdateAuctionStatusResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="getAuctionsResponse">
-
-      <wsdl:part element="impl:getAuctionsResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="InsertAuctionWithProductRequest">
-
-      <wsdl:part element="impl:InsertAuctionWithProduct" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
    <wsdl:portType name="Auction">
 
-      <wsdl:operation name="main">
+      <wsdl:operation name="insertAuction">
 
-         <wsdl:input message="impl:mainRequest" name="mainRequest">
+         <wsdl:input message="impl:insertAuctionRequest" name="insertAuctionRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:mainResponse" name="mainResponse">
+         <wsdl:output message="impl:insertAuctionResponse" name="insertAuctionResponse">
 
        </wsdl:output>
 
@@ -233,37 +207,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="InsertAuction">
+      <wsdl:operation name="getProductAuctionInformation">
 
-         <wsdl:input message="impl:InsertAuctionRequest" name="InsertAuctionRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:InsertAuctionResponse" name="InsertAuctionResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="InsertAuctionWithProduct">
-
-         <wsdl:input message="impl:InsertAuctionWithProductRequest" name="InsertAuctionWithProductRequest">
+         <wsdl:input message="impl:getProductAuctionInformationRequest" name="getProductAuctionInformationRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:InsertAuctionWithProductResponse" name="InsertAuctionWithProductResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="UpdateAuctionStatus">
-
-         <wsdl:input message="impl:UpdateAuctionStatusRequest" name="UpdateAuctionStatusRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:UpdateAuctionStatusResponse" name="UpdateAuctionStatusResponse">
+         <wsdl:output message="impl:getProductAuctionInformationResponse" name="getProductAuctionInformationResponse">
 
        </wsdl:output>
 
@@ -281,13 +231,25 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getProductAuctionInformation">
+      <wsdl:operation name="insertAuctionWithProduct">
 
-         <wsdl:input message="impl:getProductAuctionInformationRequest" name="getProductAuctionInformationRequest">
+         <wsdl:input message="impl:insertAuctionWithProductRequest" name="insertAuctionWithProductRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:getProductAuctionInformationResponse" name="getProductAuctionInformationResponse">
+         <wsdl:output message="impl:insertAuctionWithProductResponse" name="insertAuctionWithProductResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateAuctionStatus">
+
+         <wsdl:input message="impl:updateAuctionStatusRequest" name="updateAuctionStatusRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateAuctionStatusResponse" name="updateAuctionStatusResponse">
 
        </wsdl:output>
 
@@ -299,17 +261,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="main">
+      <wsdl:operation name="insertAuction">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="mainRequest">
+         <wsdl:input name="insertAuctionRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="mainResponse">
+         <wsdl:output name="insertAuctionResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -335,53 +297,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="InsertAuction">
+      <wsdl:operation name="getProductAuctionInformation">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="InsertAuctionRequest">
+         <wsdl:input name="getProductAuctionInformationRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="InsertAuctionResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="InsertAuctionWithProduct">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="InsertAuctionWithProductRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="InsertAuctionWithProductResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="UpdateAuctionStatus">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="UpdateAuctionStatusRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="UpdateAuctionStatusResponse">
+         <wsdl:output name="getProductAuctionInformationResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -407,17 +333,35 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getProductAuctionInformation">
+      <wsdl:operation name="insertAuctionWithProduct">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="getProductAuctionInformationRequest">
+         <wsdl:input name="insertAuctionWithProductRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="getProductAuctionInformationResponse">
+         <wsdl:output name="insertAuctionWithProductResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateAuctionStatus">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateAuctionStatusRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateAuctionStatusResponse">
 
             <wsdlsoap:body use="literal"/>
 

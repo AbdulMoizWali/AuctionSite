@@ -9,11 +9,11 @@ import java.util.Calendar;
 
 public class Auction {
 
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		Auction auction = new Auction(); 
 		auction.InsertAuctionWithProduct("Probduct6", "Descrdgbgipdgntion", "Catsbdgegory", "Locatbvifgon", "2022-12-16 15:16:18", "10000");
 		auction.getAuctions();
-	}
+	}*/
 
 	
 	public String getProductAuctionInformation(String ProductName) {
@@ -53,19 +53,19 @@ public class Auction {
 	    return (Date) calendar.getTime();
 	}
 	
-	public void InsertAuctionWithProduct(String Title, String Description, String Category, String Location, String Start, String MinBidPrice) {
+	public void insertAuctionWithProduct(String Title, String Description, String Category, String Location, String Start, String MinBidPrice) {
 		if(Integer.parseInt(MinBidPrice) < 5000) {
 			MinBidPrice = "5000";
 		}
 		Product product = new Product();
-		product.InsertProduct(Title, Description, Category, Location);
+		product.insertProduct(Title, Description, Category, Location);
 		
 		if(product.getProductID() != 0) {
-			InsertAuction(product.getProductID() + "", Start, MinBidPrice);							
+			insertAuction(product.getProductID() + "", Start, MinBidPrice);							
 		}
 	}
 	
-	public void InsertAuction(String ProductID, String StartDate, String MinBidPrice) {
+	public void insertAuction(String ProductID, String StartDate, String MinBidPrice) {
 		if(Integer.parseInt(MinBidPrice) < 5000) {
 			MinBidPrice = "5000";
 		}
@@ -100,7 +100,7 @@ public class Auction {
 	}
 	
 	
-	public void UpdateAuctionStatus(String AuctionID, String Status, boolean Approved) {
+	public void updateAuctionStatus(String AuctionID, String Status, boolean Approved) {
 		String Updatequery = "UPDATE `auctioned product` SET `Status` = '" + Status + "', `Approval` = '" + Approved + "' WHERE `auctioned product`.`AuctionID` = " + AuctionID;
 		
 		try{
