@@ -1,8 +1,3 @@
-- Post Add ()
-- Post Auction
-- Buying
-- Bidding
-
 - Selling Service
 In this the seller will click post ad button to upload there product for sale which will open a form to upload ad details
 if they don't want to upload they can either cancel upload now or continue to upload pictures of the product then write 
