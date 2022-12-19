@@ -1,4 +1,35 @@
-- Post Add
+- Post Add ()
 - Post Auction
 - Buying
 - Bidding
+
+- Selling Service
+In this the seller will click post ad button to upload there product for sale which will open a form to upload ad details
+if they don't want to upload they can either cancel upload now or continue to upload pictures of the product then write 
+title and description of product after the select products category and location and finally set its price and if the plan
+to not post it they can cancel post which will dicard the post and redirect them to home or continue to upload which will 
+upload their product.
+
+- Auction
+In the auction section, sellers click the "post product" button. If the user was not verified, the verification checking process began; if the user was verified,
+open the post-auction page in their user interface, upload product images, title, and description, select the category of the product, and select the location where the product currently is. 
+Following that, the user placed a starting bid amount greater than PKR 5000, the minimum required to post an auction.
+If the seller does not want to post an ad, the post will be cancelled, deleted, and redirected to the homepage; however, if the seller requests an upload, the seller's product will be checked for authenticity. 
+If the product is not authentic, notify the seller and cancel the post. If the product is authentic, 
+upload it and notify the seller, and the auction timer begins.
+
+- Buying Service
+First user will search for a product to buy which will show them a list of products to select they can select the product
+to view further details and depending on if they like it or not they can either return back to the searched product list or 
+continue to contact the Seller of that product they can choose between two mediums which they can contact them throught
+Message or Call Seller and upon contact they negotiate pricing with the seller and finally make the deal with seller.
+
+- Bidding
+In this user's search for a product, the seller listed it as "auctioned" and then viewed the product, and 
+if the user does not want to continue with product, the user searches for product, and after viewing the product, the user placed a bid, 
+either as a starting bid or over some other user's bid after bid.
+If the user was not verified, the verification checking process began; if the user is verified, check the bid timer.
+If the bidding time stops, the auction will end as well. If the bid timer has not expired, bidders' account check amount
+If there is no or little money in the account, a pop-up appears requesting that money be added to the account in order to place a bid on the product.
+However, if there is enough money in the user's account, ask for the bid amount and the last confirmation message to confirm the bid, and the bid is completed. 
+
