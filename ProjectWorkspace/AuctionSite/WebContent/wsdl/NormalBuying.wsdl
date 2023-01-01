@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://main" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://main" xmlns:intf="http://main" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://main" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="insertNormalSellingWithProduct">
+    <complexType>
+     <sequence>
+      <element name="Title" type="xsd:string"/>
+      <element name="Description" type="xsd:string"/>
+      <element name="Category" type="xsd:string"/>
+      <element name="Location" type="xsd:string"/>
+      <element name="Price" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertNormalSellingWithProductResponse">
+    <complexType/>
+   </element>
+   <element name="insertNormalSelling">
+    <complexType>
+     <sequence>
+      <element name="ProductID" type="xsd:string"/>
+      <element name="Price" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertNormalSellingResponse">
+    <complexType/>
+   </element>
+   <element name="getNormalSellingProducts">
+    <complexType/>
+   </element>
+   <element name="getNormalSellingProductsResponse">
+    <complexType>
+     <sequence>
+      <element name="getNormalSellingProductsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateNormalSellingtoSold">
+    <complexType>
+     <sequence>
+      <element name="normalSellingProductID" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateNormalSellingtoSoldResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="insertNormalSellingWithProductResponse">
+
+      <wsdl:part element="impl:insertNormalSellingWithProductResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateNormalSellingtoSoldResponse">
+
+      <wsdl:part element="impl:updateNormalSellingtoSoldResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertNormalSellingWithProductRequest">
+
+      <wsdl:part element="impl:insertNormalSellingWithProduct" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNormalSellingProductsResponse">
+
+      <wsdl:part element="impl:getNormalSellingProductsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertNormalSellingRequest">
+
+      <wsdl:part element="impl:insertNormalSelling" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertNormalSellingResponse">
+
+      <wsdl:part element="impl:insertNormalSellingResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getNormalSellingProductsRequest">
+
+      <wsdl:part element="impl:getNormalSellingProducts" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateNormalSellingtoSoldRequest">
+
+      <wsdl:part element="impl:updateNormalSellingtoSold" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="NormalBuying">
+
+      <wsdl:operation name="insertNormalSellingWithProduct">
+
+         <wsdl:input message="impl:insertNormalSellingWithProductRequest" name="insertNormalSellingWithProductRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertNormalSellingWithProductResponse" name="insertNormalSellingWithProductResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertNormalSelling">
+
+         <wsdl:input message="impl:insertNormalSellingRequest" name="insertNormalSellingRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertNormalSellingResponse" name="insertNormalSellingResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNormalSellingProducts">
+
+         <wsdl:input message="impl:getNormalSellingProductsRequest" name="getNormalSellingProductsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getNormalSellingProductsResponse" name="getNormalSellingProductsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateNormalSellingtoSold">
+
+         <wsdl:input message="impl:updateNormalSellingtoSoldRequest" name="updateNormalSellingtoSoldRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateNormalSellingtoSoldResponse" name="updateNormalSellingtoSoldResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="NormalBuyingSoapBinding" type="impl:NormalBuying">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="insertNormalSellingWithProduct">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertNormalSellingWithProductRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertNormalSellingWithProductResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertNormalSelling">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertNormalSellingRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertNormalSellingResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getNormalSellingProducts">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getNormalSellingProductsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getNormalSellingProductsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateNormalSellingtoSold">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateNormalSellingtoSoldRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateNormalSellingtoSoldResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="NormalBuyingService">
+
+      <wsdl:port binding="impl:NormalBuyingSoapBinding" name="NormalBuying">
+
+         <wsdlsoap:address location="http://localhost:8080/AuctionSite/services/NormalBuying"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

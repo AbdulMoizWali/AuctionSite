@@ -9,11 +9,11 @@ import java.util.Calendar;
 
 public class Auction {
 
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		Auction auction = new Auction(); 
-		auction.InsertAuctionWithProduct("Probduct6", "Descrdgbgipdgntion", "Catsbdgegory", "Locatbvifgon", "2022-12-16 15:16:18", "10000");
+		//auction.InsertAuctionWithProduct("Probduct6", "Descrdgbgipdgntion", "Catsbdgegory", "Locatbvifgon", "2022-12-16 15:16:18", "10000");
 		auction.getAuctions();
-	}*/
+	}
 
 	
 	public String getProductAuctionInformation(String ProductName) {

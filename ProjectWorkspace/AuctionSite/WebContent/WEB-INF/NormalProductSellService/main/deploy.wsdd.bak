@@ -1,0 +1,42 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from NormalProductSellService WSDL service -->
+
+  <service name="NormalProductSell" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://main"/>
+      <parameter name="wsdlServiceElement" value="NormalProductSellService"/>
+      <parameter name="schemaQualified" value="http://main"/>
+      <parameter name="wsdlServicePort" value="NormalProductSell"/>
+      <parameter name="className" value="main.NormalProductSellSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="NormalProductSell"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="insertNormalSellingWithProduct" qname="operNS:insertNormalSellingWithProduct" xmlns:operNS="http://main" soapAction="" >
+        <parameter qname="pns:Title" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Description" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Category" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Location" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Price" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="insertNormalSelling" qname="operNS:insertNormalSelling" xmlns:operNS="http://main" soapAction="" >
+        <parameter qname="pns:ProductID" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Price" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getNormalSellingProducts" qname="operNS:getNormalSellingProducts" xmlns:operNS="http://main" returnQName="retNS:getNormalSellingProductsReturn" xmlns:retNS="http://main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="updateNormalSellingtoSold" qname="operNS:updateNormalSellingtoSold" xmlns:operNS="http://main" soapAction="" >
+        <parameter qname="pns:normalSellingProductID" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="insertNormalSelling updateNormalSellingtoSold insertNormalSellingWithProduct getNormalSellingProducts"/>
+
+  </service>
+</deployment>
