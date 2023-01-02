@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from UserService WSDL service -->
+
+  <service name="User" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://main"/>
+      <parameter name="wsdlServiceElement" value="UserService"/>
+      <parameter name="schemaQualified" value="http://main"/>
+      <parameter name="wsdlServicePort" value="User"/>
+      <parameter name="className" value="main.User"/>
+      <parameter name="wsdlPortType" value="User"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://main" xmlns:retNS="http://main" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getUserData" qname="operNS:getUserData" returnQName="retNS:getUserDataReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:UserID" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://main" name="updateUsernamePass" qname="operNS:updateUsernamePass" soapAction="">
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Userid" type="tns:string"/>
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Username" type="tns:string"/>
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Password" type="tns:string"/>
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:firstname" type="tns:string"/>
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:lastname" type="tns:string"/>
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:phone" type="tns:string"/>
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Address" type="tns:string"/>
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Balance" type="tns:string"/>
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:CNIC" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://main" xmlns:retNS="http://main" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getProductUserData" qname="operNS:getProductUserData" returnQName="retNS:getProductUserDataReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Sellingid" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://main" name="insertUserData" qname="operNS:insertUserData" soapAction="">
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Username" type="tns:string"/>
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Password" type="tns:string"/>
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:first_name" type="tns:string"/>
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:last_name" type="tns:string"/>
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:phone" type="tns:string"/>
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:address" type="tns:string"/>
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:CNIC" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://main" xmlns:retNS="http://main" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getloginID" qname="operNS:getloginID" returnQName="retNS:getloginIDReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Username" type="tns:string"/>
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Password" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="getloginID getProductUserData updateUsernamePass getUserData insertUserData"/>
+
+  </service>
+</deployment>
