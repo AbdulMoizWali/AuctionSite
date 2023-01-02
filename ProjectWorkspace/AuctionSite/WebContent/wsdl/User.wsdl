@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://main" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://main" xmlns:intf="http://main" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://main" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getUserData">
+    <complexType>
+     <sequence>
+      <element name="UserID" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUserDataResponse">
+    <complexType>
+     <sequence>
+      <element name="getUserDataReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateUsernamePass">
+    <complexType>
+     <sequence>
+      <element name="Userid" type="xsd:string"/>
+      <element name="Username" type="xsd:string"/>
+      <element name="Password" type="xsd:string"/>
+      <element name="firstname" type="xsd:string"/>
+      <element name="lastname" type="xsd:string"/>
+      <element name="phone" type="xsd:string"/>
+      <element name="Address" type="xsd:string"/>
+      <element name="Balance" type="xsd:string"/>
+      <element name="CNIC" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateUsernamePassResponse">
+    <complexType/>
+   </element>
+   <element name="getProductUserData">
+    <complexType>
+     <sequence>
+      <element name="Sellingid" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getProductUserDataResponse">
+    <complexType>
+     <sequence>
+      <element name="getProductUserDataReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertUserData">
+    <complexType>
+     <sequence>
+      <element name="Username" type="xsd:string"/>
+      <element name="Password" type="xsd:string"/>
+      <element name="first_name" type="xsd:string"/>
+      <element name="last_name" type="xsd:string"/>
+      <element name="phone" type="xsd:string"/>
+      <element name="address" type="xsd:string"/>
+      <element name="CNIC" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertUserDataResponse">
+    <complexType/>
+   </element>
+   <element name="getloginID">
+    <complexType>
+     <sequence>
+      <element name="Username" type="xsd:string"/>
+      <element name="Password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getloginIDResponse">
+    <complexType>
+     <sequence>
+      <element name="getloginIDReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getUserDataResponse">
+
+      <wsdl:part element="impl:getUserDataResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertUserDataRequest">
+
+      <wsdl:part element="impl:insertUserData" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getProductUserDataRequest">
+
+      <wsdl:part element="impl:getProductUserData" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserDataRequest">
+
+      <wsdl:part element="impl:getUserData" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getloginIDRequest">
+
+      <wsdl:part element="impl:getloginID" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateUsernamePassResponse">
+
+      <wsdl:part element="impl:updateUsernamePassResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateUsernamePassRequest">
+
+      <wsdl:part element="impl:updateUsernamePass" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getProductUserDataResponse">
+
+      <wsdl:part element="impl:getProductUserDataResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getloginIDResponse">
+
+      <wsdl:part element="impl:getloginIDResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertUserDataResponse">
+
+      <wsdl:part element="impl:insertUserDataResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="User">
+
+      <wsdl:operation name="getUserData">
+
+         <wsdl:input message="impl:getUserDataRequest" name="getUserDataRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getUserDataResponse" name="getUserDataResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateUsernamePass">
+
+         <wsdl:input message="impl:updateUsernamePassRequest" name="updateUsernamePassRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateUsernamePassResponse" name="updateUsernamePassResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProductUserData">
+
+         <wsdl:input message="impl:getProductUserDataRequest" name="getProductUserDataRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getProductUserDataResponse" name="getProductUserDataResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertUserData">
+
+         <wsdl:input message="impl:insertUserDataRequest" name="insertUserDataRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertUserDataResponse" name="insertUserDataResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getloginID">
+
+         <wsdl:input message="impl:getloginIDRequest" name="getloginIDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getloginIDResponse" name="getloginIDResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="UserSoapBinding" type="impl:User">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getUserData">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUserDataRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUserDataResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateUsernamePass">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateUsernamePassRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateUsernamePassResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProductUserData">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getProductUserDataRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getProductUserDataResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertUserData">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertUserDataRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertUserDataResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getloginID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getloginIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getloginIDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="UserService">
+
+      <wsdl:port binding="impl:UserSoapBinding" name="User">
+
+         <wsdlsoap:address location="http://localhost:8080/AuctionSite/services/User"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -64,7 +64,7 @@
 		String Location = request.getParameter("Location"); 
 		String AuctionStartDate = request.getParameter("AuctionStartDate");
 		String MinBidPrice = request.getParameter("MinBidPrice");
-		/* Auction auction = new AuctionProxy().getAuction();
+		Auction auction = new AuctionProxy().getAuction();
 		AuctionRequest payload = new AuctionRequest();
 		out.println(ProductName);
 		if(ProductName != "" || ProductName != null){
@@ -76,7 +76,7 @@
 					 AuctionStartDate, 
 					 MinBidPrice
 				);
-		} */
+		} 
 		%>	
 	</form>
 
