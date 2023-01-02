@@ -1,3 +1,4 @@
+<%@ page import="main.*" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,12 +9,14 @@
 	<link rel="stylesheet" href="jquery.datetimepicker.min.css" />
 </head>
 <body>
-
 	<script src="jquery.js"></script>
 	<script src="jquery.datetimepicker.full.min.js"></script>
 	
 	<h1>Insert Auction</h1>
-	<form action="">
+	
+	
+	
+	<form>
 		<label>Product Name</label>
 		<input name="ProductName" type="text"></input>
 		<br>
@@ -54,6 +57,42 @@
 		<br>
 		<br>
 	    <button type="submit">Add Auction</button>
+	    <%
+		String ProductName = request.getParameter("ProductName");
+		String ProductDescription = request.getParameter("ProductDescription");
+		String Category = request.getParameter("Category"); 
+		String Location = request.getParameter("Location"); 
+		String AuctionStartDate = request.getParameter("AuctionStartDate");
+		String MinBidPrice = request.getParameter("MinBidPrice");
+		/* Auction auction = new AuctionProxy().getAuction();
+		AuctionRequest payload = new AuctionRequest();
+		out.println(ProductName);
+		if(ProductName != "" || ProductName != null){
+			auction.insertAuctionWithProduct( "1",
+					 ProductName, 
+					 ProductDescription, 
+					 Category, 
+					 Location,
+					 AuctionStartDate, 
+					 MinBidPrice
+				);
+		} */
+		%>	
 	</form>
+
+	
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+

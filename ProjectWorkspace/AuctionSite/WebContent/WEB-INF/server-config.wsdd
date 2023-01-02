@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -33,32 +33,33 @@
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
  </ns1:service>
  <ns1:service name="Auction" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="insertAuction" qname="ns1:insertAuction" soapAction="" xmlns:ns1="http://main" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
-   <ns2:parameter qname="ns1:ProductID" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns2:parameter qname="ns1:StartDate" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns2:parameter qname="ns1:MinBidPrice" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns2:operation name="getProductAuctionInformation" qname="ns1:getProductAuctionInformation" returnQName="ns1:getProductAuctionInformationReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://main" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:ProductName" type="xsd:string"/>
   </ns2:operation>
-  <ns1:operation name="getAuctions" qname="ns2:getAuctions" returnQName="ns2:getAuctionsReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://main" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  <ns1:operation name="getProductAuctionInformation" qname="ns3:getProductAuctionInformation" returnQName="ns3:getProductAuctionInformationReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://main" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns3:ProductName" type="xsd:string"/>
+  <ns1:operation name="addHoursToJavaUtilDate" qname="ns2:addHoursToJavaUtilDate" returnQName="ns2:addHoursToJavaUtilDateReturn" returnType="xsd:dateTime" soapAction="" xmlns:ns2="http://main" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:date" type="xsd:dateTime"/>
+   <ns1:parameter qname="ns2:hours" type="xsd:int"/>
   </ns1:operation>
-  <ns1:operation name="addHoursToJavaUtilDate" qname="ns4:addHoursToJavaUtilDate" returnQName="ns4:addHoursToJavaUtilDateReturn" returnType="xsd:dateTime" soapAction="" xmlns:ns4="http://main" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns4:date" type="xsd:dateTime"/>
-   <ns1:parameter qname="ns4:hours" type="xsd:int"/>
+  <ns1:operation name="updateAuctionStatus" qname="ns3:updateAuctionStatus" soapAction="" xmlns:ns3="http://main">
+   <ns1:parameter qname="ns3:AuctionID" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns3:Status" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns3:Approved" type="xsd:boolean" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
-  <ns1:operation name="insertAuctionWithProduct" qname="ns5:insertAuctionWithProduct" soapAction="" xmlns:ns5="http://main">
-   <ns1:parameter qname="ns5:Title" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns1:parameter qname="ns5:Description" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns1:parameter qname="ns5:Category" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns1:parameter qname="ns5:Location" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns1:parameter qname="ns5:Start" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="insertAuctionWithProduct" qname="ns4:insertAuctionWithProduct" soapAction="" xmlns:ns4="http://main">
+   <ns1:parameter qname="ns4:UserID" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:Title" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:Description" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:Category" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:Location" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:Start" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns4:MinBidPrice" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="insertAuction" qname="ns5:insertAuction" soapAction="" xmlns:ns5="http://main">
+   <ns1:parameter qname="ns5:ProductID" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns5:StartDate" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
    <ns1:parameter qname="ns5:MinBidPrice" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
-  <ns1:operation name="updateAuctionStatus" qname="ns6:updateAuctionStatus" soapAction="" xmlns:ns6="http://main">
-   <ns1:parameter qname="ns6:AuctionID" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns1:parameter qname="ns6:Status" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns1:parameter qname="ns6:Approved" type="xsd:boolean" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  </ns1:operation>
+  <ns1:operation name="getAuctions" qname="ns6:getAuctions" returnQName="ns6:getAuctionsReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://main" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   <ns1:parameter name="allowedMethods" value="insertAuctionWithProduct updateAuctionStatus insertAuction addHoursToJavaUtilDate getProductAuctionInformation getAuctions"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="Auction"/>
@@ -69,46 +70,48 @@
   <ns1:parameter name="wsdlServiceElement" value="AuctionService"/>
  </ns1:service>
  <ns1:service name="NormalProductSell" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="insertNormalSellingWithProduct" qname="ns7:insertNormalSellingWithProduct" soapAction="" xmlns:ns7="http://main">
-   <ns1:parameter qname="ns7:Title" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns1:parameter qname="ns7:Description" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns1:parameter qname="ns7:Category" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns1:parameter qname="ns7:Location" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns1:parameter qname="ns7:Price" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="updateNormalSellingtoSold" qname="ns7:updateNormalSellingtoSold" soapAction="" xmlns:ns7="http://main">
+   <ns1:parameter qname="ns7:normalSellingProductID" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
   <ns1:operation name="insertNormalSelling" qname="ns8:insertNormalSelling" soapAction="" xmlns:ns8="http://main">
    <ns1:parameter qname="ns8:ProductID" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
    <ns1:parameter qname="ns8:Price" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
-  <ns1:operation name="getNormalSellingProducts" qname="ns9:getNormalSellingProducts" returnQName="ns9:getNormalSellingProductsReturn" returnType="xsd:string" soapAction="" xmlns:ns9="http://main" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  <ns1:operation name="updateNormalSellingtoSold" qname="ns10:updateNormalSellingtoSold" soapAction="" xmlns:ns10="http://main">
-   <ns1:parameter qname="ns10:normalSellingProductID" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="insertNormalSellingWithProduct" qname="ns9:insertNormalSellingWithProduct" soapAction="" xmlns:ns9="http://main">
+   <ns1:parameter qname="ns9:UserID" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns9:Title" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns9:Description" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns9:Category" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns9:Location" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns9:Price" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
+  <ns1:operation name="getNormalSellingProducts" qname="ns10:getNormalSellingProducts" returnQName="ns10:getNormalSellingProductsReturn" returnType="xsd:string" soapAction="" xmlns:ns10="http://main" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   <ns1:parameter name="allowedMethods" value="insertNormalSelling updateNormalSellingtoSold insertNormalSellingWithProduct getNormalSellingProducts"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="NormalProductSell"/>
-  <ns1:parameter name="className" value="main.NormalProductSell"/>
-  <ns1:parameter name="wsdlServicePort" value="NormalProductSell"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://main"/>
+  <ns1:parameter name="wsdlServicePort" value="NormalProductSell"/>
+  <ns1:parameter name="className" value="main.NormalProductSell"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://main"/>
   <ns1:parameter name="wsdlServiceElement" value="NormalProductSellService"/>
  </ns1:service>
  <ns1:service name="Product" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="getProducts" qname="ns11:getProducts" returnQName="ns11:getProductsReturn" returnType="xsd:string" soapAction="" xmlns:ns11="http://main" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  <ns1:operation name="getProductID" qname="ns12:getProductID" returnQName="ns12:getProductIDReturn" returnType="xsd:int" soapAction="" xmlns:ns12="http://main" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="setLatestProductID" qname="ns11:setLatestProductID" soapAction="" xmlns:ns11="http://main"/>
+  <ns1:operation name="getProducts" qname="ns12:getProducts" returnQName="ns12:getProductsReturn" returnType="xsd:string" soapAction="" xmlns:ns12="http://main" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   <ns1:operation name="insertProduct" qname="ns13:insertProduct" soapAction="" xmlns:ns13="http://main">
+   <ns1:parameter qname="ns13:UserID" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
    <ns1:parameter qname="ns13:Title" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
    <ns1:parameter qname="ns13:Description" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
    <ns1:parameter qname="ns13:Category" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
    <ns1:parameter qname="ns13:Location" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
-  <ns1:operation name="setLatestProductID" qname="ns14:setLatestProductID" soapAction="" xmlns:ns14="http://main"/>
+  <ns1:operation name="getProductID" qname="ns14:getProductID" returnQName="ns14:getProductIDReturn" returnType="xsd:int" soapAction="" xmlns:ns14="http://main" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   <ns1:parameter name="allowedMethods" value="insertProduct setLatestProductID getProducts getProductID"/>
-  <ns1:parameter name="wsdlPortType" value="Product"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://main"/>
-  <ns1:parameter name="wsdlServicePort" value="Product"/>
+  <ns1:parameter name="wsdlPortType" value="Product"/>
   <ns1:parameter name="className" value="main.Product"/>
+  <ns1:parameter name="wsdlServicePort" value="Product"/>
+  <ns1:parameter name="schemaQualified" value="http://main"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://main"/>
   <ns1:parameter name="wsdlServiceElement" value="ProductService"/>
  </ns1:service>
@@ -129,11 +132,11 @@
    <ns1:parameter qname="ns18:normalSellingProductID" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="insertNormalSelling updateNormalSellingtoSold insertNormalSellingWithProduct getNormalSellingProducts"/>
-  <ns1:parameter name="wsdlPortType" value="NormalBuying"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://main"/>
-  <ns1:parameter name="wsdlServicePort" value="NormalBuying"/>
+  <ns1:parameter name="wsdlPortType" value="NormalBuying"/>
   <ns1:parameter name="className" value="main.NormalBuying"/>
+  <ns1:parameter name="wsdlServicePort" value="NormalBuying"/>
+  <ns1:parameter name="schemaQualified" value="http://main"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://main"/>
   <ns1:parameter name="wsdlServiceElement" value="NormalBuyingService"/>
  </ns1:service>

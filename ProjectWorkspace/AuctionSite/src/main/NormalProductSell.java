@@ -20,9 +20,9 @@ public class NormalProductSell {
 	}
 	*/
 	
-	public void insertNormalSellingWithProduct(String Title, String Description, String Category, String Location, String Price) {
+	public void insertNormalSellingWithProduct(String UserID, String Title, String Description, String Category, String Location, String Price) {
 		Product product = new Product();
-		product.insertProduct(Title, Description, Category, Location);
+		product.insertProduct(UserID, Title, Description, Category, Location);
 		
 		if(product.getProductID() != 0) {
 			insertNormalSelling(product.getProductID() + "", Price);							

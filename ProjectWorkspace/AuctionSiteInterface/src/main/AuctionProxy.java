@@ -44,18 +44,6 @@ public class AuctionProxy implements main.Auction {
     return auction;
   }
   
-  public void insertAuction(java.lang.String productID, java.lang.String startDate, java.lang.String minBidPrice) throws java.rmi.RemoteException{
-    if (auction == null)
-      _initAuctionProxy();
-    auction.insertAuction(productID, startDate, minBidPrice);
-  }
-  
-  public java.lang.String getAuctions() throws java.rmi.RemoteException{
-    if (auction == null)
-      _initAuctionProxy();
-    return auction.getAuctions();
-  }
-  
   public java.lang.String getProductAuctionInformation(java.lang.String productName) throws java.rmi.RemoteException{
     if (auction == null)
       _initAuctionProxy();
@@ -68,16 +56,28 @@ public class AuctionProxy implements main.Auction {
     return auction.addHoursToJavaUtilDate(date, hours);
   }
   
-  public void insertAuctionWithProduct(java.lang.String title, java.lang.String description, java.lang.String category, java.lang.String location, java.lang.String start, java.lang.String minBidPrice) throws java.rmi.RemoteException{
-    if (auction == null)
-      _initAuctionProxy();
-    auction.insertAuctionWithProduct(title, description, category, location, start, minBidPrice);
-  }
-  
   public void updateAuctionStatus(java.lang.String auctionID, java.lang.String status, boolean approved) throws java.rmi.RemoteException{
     if (auction == null)
       _initAuctionProxy();
     auction.updateAuctionStatus(auctionID, status, approved);
+  }
+  
+  public void insertAuctionWithProduct(java.lang.String userID, java.lang.String title, java.lang.String description, java.lang.String category, java.lang.String location, java.lang.String start, java.lang.String minBidPrice) throws java.rmi.RemoteException{
+    if (auction == null)
+      _initAuctionProxy();
+    auction.insertAuctionWithProduct(userID, title, description, category, location, start, minBidPrice);
+  }
+  
+  public void insertAuction(java.lang.String productID, java.lang.String startDate, java.lang.String minBidPrice) throws java.rmi.RemoteException{
+    if (auction == null)
+      _initAuctionProxy();
+    auction.insertAuction(productID, startDate, minBidPrice);
+  }
+  
+  public java.lang.String getAuctions() throws java.rmi.RemoteException{
+    if (auction == null)
+      _initAuctionProxy();
+    return auction.getAuctions();
   }
   
   

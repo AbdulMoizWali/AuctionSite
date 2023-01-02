@@ -20,17 +20,18 @@
       <parameter name="className" value="main.ProductSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="Product"/>
       <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="setLatestProductID" qname="operNS:setLatestProductID" xmlns:operNS="http://main" soapAction="" >
+      </operation>
       <operation name="getProducts" qname="operNS:getProducts" xmlns:operNS="http://main" returnQName="retNS:getProductsReturn" xmlns:retNS="http://main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
       </operation>
-      <operation name="getProductID" qname="operNS:getProductID" xmlns:operNS="http://main" returnQName="retNS:getProductIDReturn" xmlns:retNS="http://main" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-      </operation>
       <operation name="insertProduct" qname="operNS:insertProduct" xmlns:operNS="http://main" soapAction="" >
+        <parameter qname="pns:UserID" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:Title" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:Description" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:Category" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:Location" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <operation name="setLatestProductID" qname="operNS:setLatestProductID" xmlns:operNS="http://main" soapAction="" >
+      <operation name="getProductID" qname="operNS:getProductID" xmlns:operNS="http://main" returnQName="retNS:getProductIDReturn" xmlns:retNS="http://main" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
       </operation>
       <parameter name="allowedMethods" value="insertProduct setLatestProductID getProducts getProductID"/>
 

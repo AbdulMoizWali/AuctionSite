@@ -12,7 +12,7 @@
 	<a href="InsertAuction.jsp"><button>Start an Auction</button></a>
 	<br>
 	<br>
-	<a href=""><button>Insert a simple Product</button></a>
+	<a href="InsertNormalProductSell.jsp"><button>Insert a simple Product</button></a>
 
 </body>
 </html>

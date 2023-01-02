@@ -4,18 +4,14 @@
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://main" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="insertNormalSellingWithProduct">
+   <element name="updateNormalSellingtoSold">
     <complexType>
      <sequence>
-      <element name="Title" type="xsd:string"/>
-      <element name="Description" type="xsd:string"/>
-      <element name="Category" type="xsd:string"/>
-      <element name="Location" type="xsd:string"/>
-      <element name="Price" type="xsd:string"/>
+      <element name="normalSellingProductID" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="insertNormalSellingWithProductResponse">
+   <element name="updateNormalSellingtoSoldResponse">
     <complexType/>
    </element>
    <element name="insertNormalSelling">
@@ -29,6 +25,21 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <element name="insertNormalSellingResponse">
     <complexType/>
    </element>
+   <element name="insertNormalSellingWithProduct">
+    <complexType>
+     <sequence>
+      <element name="UserID" type="xsd:string"/>
+      <element name="Title" type="xsd:string"/>
+      <element name="Description" type="xsd:string"/>
+      <element name="Category" type="xsd:string"/>
+      <element name="Location" type="xsd:string"/>
+      <element name="Price" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertNormalSellingWithProductResponse">
+    <complexType/>
+   </element>
    <element name="getNormalSellingProducts">
     <complexType/>
    </element>
@@ -38,16 +49,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
       <element name="getNormalSellingProductsReturn" type="xsd:string"/>
      </sequence>
     </complexType>
-   </element>
-   <element name="updateNormalSellingtoSold">
-    <complexType>
-     <sequence>
-      <element name="normalSellingProductID" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="updateNormalSellingtoSoldResponse">
-    <complexType/>
    </element>
   </schema>
  </wsdl:types>
@@ -118,13 +119,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="NormalProductSell">
 
-      <wsdl:operation name="insertNormalSellingWithProduct">
+      <wsdl:operation name="updateNormalSellingtoSold">
 
-         <wsdl:input message="impl:insertNormalSellingWithProductRequest" name="insertNormalSellingWithProductRequest">
+         <wsdl:input message="impl:updateNormalSellingtoSoldRequest" name="updateNormalSellingtoSoldRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:insertNormalSellingWithProductResponse" name="insertNormalSellingWithProductResponse">
+         <wsdl:output message="impl:updateNormalSellingtoSoldResponse" name="updateNormalSellingtoSoldResponse">
 
        </wsdl:output>
 
@@ -142,6 +143,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="insertNormalSellingWithProduct">
+
+         <wsdl:input message="impl:insertNormalSellingWithProductRequest" name="insertNormalSellingWithProductRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertNormalSellingWithProductResponse" name="insertNormalSellingWithProductResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
       <wsdl:operation name="getNormalSellingProducts">
 
          <wsdl:input message="impl:getNormalSellingProductsRequest" name="getNormalSellingProductsRequest">
@@ -154,35 +167,23 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="updateNormalSellingtoSold">
-
-         <wsdl:input message="impl:updateNormalSellingtoSoldRequest" name="updateNormalSellingtoSoldRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:updateNormalSellingtoSoldResponse" name="updateNormalSellingtoSoldResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
    </wsdl:portType>
 
    <wsdl:binding name="NormalProductSellSoapBinding" type="impl:NormalProductSell">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="insertNormalSellingWithProduct">
+      <wsdl:operation name="updateNormalSellingtoSold">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="insertNormalSellingWithProductRequest">
+         <wsdl:input name="updateNormalSellingtoSoldRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="insertNormalSellingWithProductResponse">
+         <wsdl:output name="updateNormalSellingtoSoldResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -208,6 +209,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="insertNormalSellingWithProduct">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertNormalSellingWithProductRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertNormalSellingWithProductResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
       <wsdl:operation name="getNormalSellingProducts">
 
          <wsdlsoap:operation soapAction=""/>
@@ -219,24 +238,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="getNormalSellingProductsResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="updateNormalSellingtoSold">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="updateNormalSellingtoSoldRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="updateNormalSellingtoSoldResponse">
 
             <wsdlsoap:body use="literal"/>
 
