@@ -4,6 +4,12 @@
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://main" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="setLatestProductID">
+    <complexType/>
+   </element>
+   <element name="setLatestProductIDResponse">
+    <complexType/>
+   </element>
    <element name="getProducts">
     <complexType/>
    </element>
@@ -14,19 +20,10 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="getProductID">
-    <complexType/>
-   </element>
-   <element name="getProductIDResponse">
-    <complexType>
-     <sequence>
-      <element name="getProductIDReturn" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
    <element name="insertProduct">
     <complexType>
      <sequence>
+      <element name="UserID" type="xsd:string"/>
       <element name="Title" type="xsd:string"/>
       <element name="Description" type="xsd:string"/>
       <element name="Category" type="xsd:string"/>
@@ -37,11 +34,15 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <element name="insertProductResponse">
     <complexType/>
    </element>
-   <element name="setLatestProductID">
+   <element name="getProductID">
     <complexType/>
    </element>
-   <element name="setLatestProductIDResponse">
-    <complexType/>
+   <element name="getProductIDResponse">
+    <complexType>
+     <sequence>
+      <element name="getProductIDReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
    </element>
   </schema>
  </wsdl:types>
@@ -112,6 +113,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="Product">
 
+      <wsdl:operation name="setLatestProductID">
+
+         <wsdl:input message="impl:setLatestProductIDRequest" name="setLatestProductIDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setLatestProductIDResponse" name="setLatestProductIDResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
       <wsdl:operation name="getProducts">
 
          <wsdl:input message="impl:getProductsRequest" name="getProductsRequest">
@@ -119,18 +132,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:getProductsResponse" name="getProductsResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getProductID">
-
-         <wsdl:input message="impl:getProductIDRequest" name="getProductIDRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getProductIDResponse" name="getProductIDResponse">
 
        </wsdl:output>
 
@@ -148,13 +149,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="setLatestProductID">
+      <wsdl:operation name="getProductID">
 
-         <wsdl:input message="impl:setLatestProductIDRequest" name="setLatestProductIDRequest">
+         <wsdl:input message="impl:getProductIDRequest" name="getProductIDRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:setLatestProductIDResponse" name="setLatestProductIDResponse">
+         <wsdl:output message="impl:getProductIDResponse" name="getProductIDResponse">
 
        </wsdl:output>
 
@@ -165,6 +166,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:binding name="ProductSoapBinding" type="impl:Product">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="setLatestProductID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setLatestProductIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setLatestProductIDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
 
       <wsdl:operation name="getProducts">
 
@@ -177,24 +196,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="getProductsResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getProductID">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getProductIDRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getProductIDResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -220,17 +221,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="setLatestProductID">
+      <wsdl:operation name="getProductID">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="setLatestProductIDRequest">
+         <wsdl:input name="getProductIDRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="setLatestProductIDResponse">
+         <wsdl:output name="getProductIDResponse">
 
             <wsdlsoap:body use="literal"/>
 

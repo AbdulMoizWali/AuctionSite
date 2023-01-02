@@ -10,17 +10,18 @@
       <parameter name="className" value="main.Product"/>
       <parameter name="wsdlPortType" value="Product"/>
       <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://main" name="setLatestProductID" qname="operNS:setLatestProductID" soapAction="">
+      </operation>
       <operation xmlns:operNS="http://main" xmlns:retNS="http://main" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getProducts" qname="operNS:getProducts" returnQName="retNS:getProductsReturn" returnType="rtns:string" soapAction="">
       </operation>
-      <operation xmlns:operNS="http://main" xmlns:retNS="http://main" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getProductID" qname="operNS:getProductID" returnQName="retNS:getProductIDReturn" returnType="rtns:int" soapAction="">
-      </operation>
       <operation xmlns:operNS="http://main" name="insertProduct" qname="operNS:insertProduct" soapAction="">
+        <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:UserID" type="tns:string"/>
         <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Title" type="tns:string"/>
         <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Description" type="tns:string"/>
         <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Category" type="tns:string"/>
         <parameter xmlns:pns="http://main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Location" type="tns:string"/>
       </operation>
-      <operation xmlns:operNS="http://main" name="setLatestProductID" qname="operNS:setLatestProductID" soapAction="">
+      <operation xmlns:operNS="http://main" xmlns:retNS="http://main" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getProductID" qname="operNS:getProductID" returnQName="retNS:getProductIDReturn" returnType="rtns:int" soapAction="">
       </operation>
       <parameter name="allowedMethods" value="insertProduct setLatestProductID getProducts getProductID"/>
 

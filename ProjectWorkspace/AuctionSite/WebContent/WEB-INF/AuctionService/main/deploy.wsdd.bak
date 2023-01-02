@@ -20,13 +20,6 @@
       <parameter name="className" value="main.AuctionSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="Auction"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="insertAuction" qname="operNS:insertAuction" xmlns:operNS="http://main" soapAction="" >
-        <parameter qname="pns:ProductID" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:StartDate" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:MinBidPrice" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getAuctions" qname="operNS:getAuctions" xmlns:operNS="http://main" returnQName="retNS:getAuctionsReturn" xmlns:retNS="http://main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-      </operation>
       <operation name="getProductAuctionInformation" qname="operNS:getProductAuctionInformation" xmlns:operNS="http://main" returnQName="retNS:getProductAuctionInformationReturn" xmlns:retNS="http://main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:ProductName" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
@@ -34,7 +27,13 @@
         <parameter qname="pns:date" xmlns:pns="http://main" type="tns:dateTime" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:hours" xmlns:pns="http://main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
+      <operation name="updateAuctionStatus" qname="operNS:updateAuctionStatus" xmlns:operNS="http://main" soapAction="" >
+        <parameter qname="pns:AuctionID" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Status" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Approved" xmlns:pns="http://main" type="tns:boolean" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
       <operation name="insertAuctionWithProduct" qname="operNS:insertAuctionWithProduct" xmlns:operNS="http://main" soapAction="" >
+        <parameter qname="pns:UserID" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:Title" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:Description" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:Category" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
@@ -42,10 +41,12 @@
         <parameter qname="pns:Start" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:MinBidPrice" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <operation name="updateAuctionStatus" qname="operNS:updateAuctionStatus" xmlns:operNS="http://main" soapAction="" >
-        <parameter qname="pns:AuctionID" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:Status" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:Approved" xmlns:pns="http://main" type="tns:boolean" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      <operation name="insertAuction" qname="operNS:insertAuction" xmlns:operNS="http://main" soapAction="" >
+        <parameter qname="pns:ProductID" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:StartDate" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:MinBidPrice" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getAuctions" qname="operNS:getAuctions" xmlns:operNS="http://main" returnQName="retNS:getAuctionsReturn" xmlns:retNS="http://main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
       </operation>
       <parameter name="allowedMethods" value="insertAuctionWithProduct updateAuctionStatus insertAuction addHoursToJavaUtilDate getProductAuctionInformation getAuctions"/>
 

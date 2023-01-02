@@ -22,7 +22,7 @@ public class Product {
 	
 
 	
-	public void insertProduct(String Title, String Description, String Category, String Location) {
+	public void insertProduct(String UserID, String Title, String Description, String Category, String Location) {
 		this.Title = Title;
 		this.Description = Description;
 		this.Category = Category;
@@ -32,7 +32,7 @@ public class Product {
 			return;
 		}
 		//InsertProduct(Title, Description, Category, Location);			
-		String Insertquery = "INSERT INTO `product` (`Title`, `Description`, `Category`, `Location`) VALUES ('" + Title + "', '" + Description + "', '" + Category + "', '" + Location + "' )";
+		String Insertquery = "INSERT INTO `product` (`Title`, `Description`, `Category`, `Location`, `UserID`) VALUES ('" + Title + "', '" + Description + "', '" + Category + "', '" + Location + "', '" + UserID +"' )";
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con =

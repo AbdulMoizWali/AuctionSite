@@ -11,10 +11,10 @@ public class Auction {
 
 	/*public static void main(String[] args) {
 		Auction auction = new Auction(); 
-		auction.InsertAuctionWithProduct("Probduct6", "Descrdgbgipdgntion", "Catsbdgegory", "Locatbvifgon", "2022-12-16 15:16:18", "10000");
+		//auction.InsertAuctionWithProduct("Probduct6", "Descrdgbgipdgntion", "Catsbdgegory", "Locatbvifgon", "2022-12-16 15:16:18", "10000");
 		auction.getAuctions();
-	}*/
-
+	}
+*/
 	
 	public String getProductAuctionInformation(String ProductName) {
 		String result = "";
@@ -53,12 +53,12 @@ public class Auction {
 	    return (Date) calendar.getTime();
 	}
 	
-	public void insertAuctionWithProduct(String Title, String Description, String Category, String Location, String Start, String MinBidPrice) {
+	public void insertAuctionWithProduct(String UserID, String Title, String Description, String Category, String Location, String Start, String MinBidPrice) {
 		if(Integer.parseInt(MinBidPrice) < 5000) {
 			MinBidPrice = "5000";
 		}
 		Product product = new Product();
-		product.insertProduct(Title, Description, Category, Location);
+		product.insertProduct(UserID, Title, Description, Category, Location);
 		
 		if(product.getProductID() != 0) {
 			insertAuction(product.getProductID() + "", Start, MinBidPrice);							
