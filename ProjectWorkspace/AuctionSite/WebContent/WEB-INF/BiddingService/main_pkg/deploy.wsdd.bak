@@ -23,19 +23,19 @@
       <operation name="main" qname="operNS:main" xmlns:operNS="http://main" soapAction="" >
         <parameter qname="pns:args" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
+      <operation name="getProduct" qname="operNS:getProduct" xmlns:operNS="http://main" returnQName="retNS:getProductReturn" xmlns:retNS="http://main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:Productid" xmlns:pns="http://main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
       <operation name="updateStatus" qname="operNS:updateStatus" xmlns:operNS="http://main" soapAction="" >
+        <parameter qname="pns:AuctionID" xmlns:pns="http://main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getenddate" qname="operNS:getenddate" xmlns:operNS="http://main" returnQName="retNS:getenddateReturn" xmlns:retNS="http://main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:AuctionID" xmlns:pns="http://main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <operation name="bidInsert" qname="operNS:bidInsert" xmlns:operNS="http://main" soapAction="" >
         <parameter qname="pns:Auctionid" xmlns:pns="http://main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:bidamount" xmlns:pns="http://main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:loginuserid" xmlns:pns="http://main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getenddate" qname="operNS:getenddate" xmlns:operNS="http://main" returnQName="retNS:getenddateReturn" xmlns:retNS="http://main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:AuctionID" xmlns:pns="http://main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getProduct" qname="operNS:getProduct" xmlns:operNS="http://main" returnQName="retNS:getProductReturn" xmlns:retNS="http://main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:Productid" xmlns:pns="http://main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <parameter name="allowedMethods" value="getProduct bidInsert updateStatus main getenddate"/>
 
