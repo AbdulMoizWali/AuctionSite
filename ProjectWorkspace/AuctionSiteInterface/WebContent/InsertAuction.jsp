@@ -65,7 +65,7 @@
 		String AuctionStartDate = request.getParameter("AuctionStartDate");
 		String MinBidPrice = request.getParameter("MinBidPrice");
 		Auction auction = new AuctionProxy().getAuction();
-		AuctionRequest payload = new AuctionRequest();
+		Auction payload = new AuctionProxy().getAuction();
 		out.println(ProductName);
 		if(ProductName != "" || ProductName != null){
 			auction.insertAuctionWithProduct( "1",
