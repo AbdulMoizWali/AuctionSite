@@ -23,17 +23,6 @@
       <operation name="getUserData" qname="operNS:getUserData" xmlns:operNS="http://main" returnQName="retNS:getUserDataReturn" xmlns:retNS="http://main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:UserID" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <operation name="updateUsernamePass" qname="operNS:updateUsernamePass" xmlns:operNS="http://main" soapAction="" >
-        <parameter qname="pns:Userid" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:Username" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:Password" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:firstname" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:lastname" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:phone" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:Address" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:Balance" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:CNIC" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
       <operation name="getProductUserData" qname="operNS:getProductUserData" xmlns:operNS="http://main" returnQName="retNS:getProductUserDataReturn" xmlns:retNS="http://main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:Sellingid" xmlns:pns="http://main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
@@ -46,11 +35,22 @@
         <parameter qname="pns:address" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:CNIC" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
+      <operation name="updateUserdata" qname="operNS:updateUserdata" xmlns:operNS="http://main" soapAction="" >
+        <parameter qname="pns:Userid" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Username" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Password" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:firstname" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:lastname" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:phone" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Address" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Balance" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:CNIC" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
       <operation name="getloginID" qname="operNS:getloginID" xmlns:operNS="http://main" returnQName="retNS:getloginIDReturn" xmlns:retNS="http://main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:Username" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:Password" xmlns:pns="http://main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <parameter name="allowedMethods" value="getloginID getProductUserData updateUsernamePass getUserData insertUserData"/>
+      <parameter name="allowedMethods" value="getloginID getProductUserData getUserData updateUserdata insertUserData"/>
 
   </service>
 </deployment>

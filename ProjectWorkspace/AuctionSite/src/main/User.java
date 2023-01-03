@@ -56,7 +56,7 @@ public class User {
 		return result;
 	}
 	
-	public void updateUsernamePass(String Userid, String Username, String Password, String firstname, String lastname, String phone, String Address, String Balance, String CNIC) {
+	public void updateUserdata(String Userid, String Username, String Password, String firstname, String lastname, String phone, String Address, String Balance, String CNIC) {
 		String updateUsernamePass= "UPDATE `user` SET Username = '" + Username+ "', Password = '" + Password + "', First_Name = '" + firstname +"', Last_Name = '" +lastname+ "', phone = '" + phone + "', Address = '" + Address + "', Balance = '" + Balance + "', CNIC = '" + CNIC + "' where UserID = '" + Userid + "'";
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
